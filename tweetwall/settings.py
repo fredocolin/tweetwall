@@ -84,8 +84,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
 LOGIN_URL='/tw/login'
 LOGOUT_URL='/tw/logout'
-LOGIN_REDIRECT_URL='/tw/user_timeline'
+LOGIN_REDIRECT_URL='/tw/wall'
 LOGOUT_REDIRECT_URL='/'

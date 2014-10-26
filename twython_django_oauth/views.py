@@ -92,9 +92,9 @@ def hashtag_wall(request):
     twitter = Twython(settings.TWITTER_KEY, settings.TWITTER_SECRET,
                       user.oauth_token, user.oauth_secret)
     tweets = []
-    if request.method == 'GET':
-        tag = request.GET.get('hashtag', '')
-        print ">>> " + tag
+    tag = request.GET.get('hashtag', '')
+    print ">>> " + tag
+    if tag:
         res = twitter.search(q='#' + tag, count=30)
         tweets = res['statuses']
     return render_to_response('tweets.html', {'tweets': tweets, 'tag': tag, 'user': request.user})
