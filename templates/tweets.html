@@ -1,0 +1,20 @@
+{% if user.is_authenticated %}
+<form action="/tw/wall" method="get">
+    <label for="your_name">Search a hashtag: </label>
+    <input id="hashtag" type="text" name="hashtag" value="{{ tag }}">
+    <input type="submit" value="Search">
+</form>
+
+<form action="/tw/tweetstatus" method="post" id="msgform">
+    <label for="your_name">Post on this wall: </label>
+    <input id="hashtag" type="text" name="hashtag" value="{{ tag }}" hidden="true">
+    <textarea form="msgform" id="msg" name="msg" maxlength="140" rows="4">#{{ tag }}</textarea>
+    <input type="submit" value="Tweet">
+</form>
+
+{% endif %}
+
+{% for tweet in tweets %}
+{{ tweet.user.name }}: {{ tweet.text }}
+<br/>
+{% endfor %}
